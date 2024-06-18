@@ -8,3 +8,5 @@ apply from: 'service-member/settings.gradle'
 
 project(':service-board').projectDir = new File(settingsDir, 'service-board')
 apply from: 'service-board/settings.gradle'
+
+

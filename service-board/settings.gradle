@@ -1,3 +1,2 @@
 include 'service-board:module-core'
-include 'service-board:module-external-api'
-include 'service-board:module-internal-api'
+include 'service-board:module-api'

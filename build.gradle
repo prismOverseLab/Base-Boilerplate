@@ -56,6 +56,42 @@ subprojects {
 
 	tasks.named('test') {
 		useJUnitPlatform()
+		finalizedBy 'jacocoTestReport'
+	}
+
+	jacocoTestReport {
+		reports {
+			html.destination file("$buildDir/jacoco/report.html")
+		}
+
+		finalizedBy 'jacocoTestCoverageVerification'
+	}
+
+	jacocoTestCoverageVerification {
+		violationRules {
+			rule {
+				enabled = true
+				element = 'CLASS'
+
+				limit {
+					counter = 'LINE'
+					value = 'COVEREDRATIO'
+					minimum = 0.00  // update
+				}
+
+				limit {
+					counter = 'BRANCH'
+					value = 'COVEREDRATIO'
+					minimum = 0.00
+				}
+
+				limit {
+					counter = 'LINE'
+					value = 'TOTALCOUNT'
+					maximum = 500
+				}
+			}
+		}
 	}
 }
 
