@@ -1,1 +1,10 @@
-rootProject.name = 'Monitoring-Boilerplate'
+rootProject.name = 'Base-Boilerplate'
+include 'module-common'
+include 'service-member'
+include 'service-board'
+
+project(':service-member').projectDir = new File(settingsDir, 'service-member')
+apply from: 'service-member/settings.gradle'
+
+project(':service-board').projectDir = new File(settingsDir, 'service-board')
+apply from: 'service-board/settings.gradle'
